@@ -53,13 +53,13 @@ export default {
               console.log(`Sending code ${code} to ${email}`);
             },
             copy: {
-              input_code: "Code (check Worker logs)",
+              input_code: "代码（检查工人日志）",
             },
           }),
         ),
       },
       theme: {
-        title: "myAuth",
+        title: "定边七中",
         primary: "#0051c3",
         favicon: "https://workers.cloudflare.com//favicon.ico",
         logo: {
@@ -89,8 +89,8 @@ async function getOrCreateUser(env: Env, email: string): Promise<string> {
     .bind(email)
     .first<{ id: string }>();
   if (!result) {
-    throw new Error(`Unable to process user: ${email}`);
+    throw new Error(`无法处理用户：${email}`);
   }
-  console.log(`Found or created user ${result.id} with email ${email}`);
+  console.log(`找到或创建用户 ${result.id} 通过电子邮件 ${email}`);
   return result.id;
 }
